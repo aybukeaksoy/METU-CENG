@@ -1,0 +1,232 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{fancybox}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{latexsym}
+\usepackage{alltt}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[hmargin=3cm,vmargin=5.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name :  Aybüke Aksoy\\
+Id Number :  2448090\\
+
+\section*{Q1}
+According to the Well-Ordering Property, every nonempty subset of the set of positive integers has a least element.\\
+Assume A, a subset of 
+$Z^+$
+has the elements k and 1 such that k is the least element. So,
+$k<1;$\\
+Multiplying each side of the inequality, we get 
+$k^2<k;$\\
+$k^2$
+is also in
+$Z^+$
+as
+$(k \in Z^+ \wedge n \in Z^+) \rightarrow k^n \in Z^+$
+where n is 2 and 2 is an element of positive integers in our case.
+Therefore,
+$k^2 \in Z^+$\\
+However there exist no positive integer k such that it's square is less than itself. \\
+Therefore, we get a contradiction from 
+$k^2<k;$\\
+Our assumption is not correct. There exist no integer k such that 
+$k<1$\\
+We can say the same for all elements of
+$Z^+$
+by taking them as k since k is an arbitrary positive integer and A is an arbitrary subset.\\
+So, 1 must be the smallest positive integer in every subset of
+$Z^+$
+, also in
+$Z^+$
+itself.\\
+Hence 1 is the smallest positive integer.
+
+
+\section*{Q2}
+1) Basis Step:\\\\
+For S(m,1);\\
+$x_1+x_2+x_3+.....+x_m=1$\\
+The number of possible solutions is m as one of
+ $x_i's$
+ can be 1 and other ones will be all 0. We can choose the 
+ $x_i$
+ that will be 1 in m ways.\\
+ And also from the given formula;
+$(n+m-1)!/n!(m-1)!=m!/(m-1)!=m$\\
+We have showed that S(m,1) satisfies the formula given. \\\\
+For S(1,n);\\
+$x_1=n$\\
+The number of possible solutions is 1 as
+$x_1$
+can only be n\\
+ And also from the given formula;
+$(n+m-1)!/n!(m-1)!=n!/n!=1$\\
+We have showed that S(1,n) satisfies the formula given. \\\\
+2) Inductive Step:\\\\
+Assume S(k,p+1)=(k+p)!/(k+1)!(p-1)!  and S(k+1,p)=(k+p)!/k!p! for 
+$k>=0,p>=0;$\\
+We need to prove that S(k+1,p+1)=(k+p+1)!/(k+1)!p! ;\\
+S(k+1,p+1)=
+$x_1+x_2+x_3+......+x_k+x_k_+_1=p+1$\\
+If 
+$x_k_+_1$
+ is 0, we have
+$x_1+x_2+x_3+......+x_k=p+1$
+, which is equal to S(k,p+1)\\
+If 
+$x_k_+_1$
+is greater than 0, it can be 1,2,3,4 etc.\\
+If we substract 1 from each side of the equation, we get;\\
+$x_1+x_2+x_3+......+x_k+x_k_+_1-1=p$\\
+Instead of writing
+$x_k_+_1-1$
+on the left side, we can say 
+$x_k_+_1$ can be 0,1,2,3.. etc rather than 1,2,3,4... etc
+and it will be equal to S(k+1,p)\\
+Hence the total possible solutions S(k+1,p+1)=S(k,p+1)+S(k+1,p)\\
+Now we have to check if given formula satisfies this equation.\\
+S(k+1,p+1)=(k+p+1)!/(k+1)!p!\\
+S(k,p+1)+ S(k+1,p)= (k+p)!/(k+1)!(p-1)! + (k+p)!/k!p!\\
+ =(k+p)!p/(k+1)!(p-1)!p + (k+p)!(k+1)/k!p!(k+1)\\
+ =(k+p)!p/(k+1)!p! + (k+p)!(k+1)/(k+1)!p!\\
+ =(k+p)!(k+p+1)/(k+1)!p!\\
+ =(k+p+1)!/(k+1)!p!\\
+ We have showed that S(k+1,p+1) satisfies.\\
+ Therefore from induction, this formula holds for all
+ $m>=0$ 
+ and
+ $n>=0$\\
+ Hence S(m,n)=(n+m-1)!/n!(m-1)!
+\section*{Q3}
+\paragraph{\textbf{a)}}
+
+To construct a triangle congruent to the one drawn in the figure with same size and any orientation, we need to find the different orientations first. 
+For the same size we can get 4 orientations by connecting the dots such that;\\
+Case 1:\\
+ . \\ 
+.   .\\
+Case 2:\\
+.   .\\
+.\\ 
+and so on by rotating case 1 and 2 by 180 degrees in clockwise direction.\\
+For the first case, we have 28 ways to choose the dots from the given figure, 1 for each unit triangle and unit square. \\
+For the second case, we have 21 ways to choose the dots from the given figure, 1 for each unit square.\\
+For the third case, we have 21 ways to choose the dots from the given figure, 1 for each unit square.\\
+For the fourth case, we have 21 ways to choose the dots from the given figure, 1 for each unit square.\\
+Thus, in total we have 28+21+21+21=91 ways to construct a triangle with same size and any orientation.
+
+\paragraph{\textbf{b)}}
+To find the number of onto functions from a set with 6 elements to 4 elements;
+1) There are 4 elements in the image set of the function. Since functions have to be onto, we have to use all the elements in the image set. While mapping the elements in the domain set to image set, we have 2 choices. Each element in image set can have the corresponding number of elements mapped to them;\\
+3 1 1 1\\
+2 2 1 1\\
+2) However, for  3 1 1 1 case 3 elements of the domain can be mapped to any element of the image set such that  3 1 1 1 , 1 3 1 1 ,  1 1 3 1 , 1 1 1 3. So, we can choose that element in C(4,1)=4 ways.\\
+For  2 2 1 1 case we can choose the elements in image set which we are gonna send 2 elements from the domain set in C(4,2)=6 ways such that  2 2 1 1, 2 1 2 1, 2 1 1 2, 1 2 2 1, 1 2 1 2, 1 1 2 2 \\
+3) For  3 1 1 1 case we can map the elements from domain as C(6,3)*C(3,1)*C(2,1)*C(1,1) and from part 2 we can do that in 4 ways. So, (20*3*2*1)*4=480 is the number of functions we get from this case.
+For 2 2 1 1 case we can map the elements from domain as C(6,2)*C(4,2)*C(2,1)*C(1,1) and from part 2 we can do that in 6 ways. So (15*6*2*1)*6=1080 is the number of functions we get from this case. \\
+4) In total we have 1080+480=1560 different onto functions from a set with 6 elements to a set 4 elements. 
+\section*{Q4}
+\paragraph{\textbf{a)}}
+To find the recurrence relation for the number of strings over the alphabet 
+$\{0,1,2\}$
+of length n that contain two consecutive symbols that are the same, we can start by considering each case. \\\\
+for n=1; we can construct 0 strings with consecutive symbols that are the same. \\
+for n=2; we can construct 3 strings with consecutive symbols that are the same since we can construct 3*3=9 strings in total and 3*2=6 non-consecutive strings. Number of onsecutive ones are equal to the difference of total and non-consecutive ones. \\
+for n=3; we can construct 15 strings with consecutive symbols that are the same since we can construct 3*3*3=27 strings in total and 3*2*2=12 non-consecutive strings. Number of onsecutive ones are equal to the difference of total and non-consecutive ones. \\\\
+Then, to find the recurrence relation between 
+$a_n \ and \ a_n_-_1$
+such that
+$a_n$ 
+is the number of consecutive strings of length n with symbols that are the same over the alphabet and
+$a_n_-_1$
+is the number of consecutive strings of length n-1 with symbols that are the same over the alphabet; \\\\
+1) We can eliminate the nth digit of the string. When we eliminate we get n-1 length string. This string may or may not contain consecutive symbols. \\
+2) If it contains consecutive symbols, it will be one of the consecutive ones with length n-1 and number of them will be equal to 
+$a_n_-_1$
+The last digit of our original string with length n does not matter as the string with length n-1 contains consecutive symbols. Even if the last digit creates one more consecutive pair, it will not affect. Therefore we can choose either 0,1,2 for the last digit of string with length n. Thus, we have \\
+$3*a_n_-_1$
+strings if n-1 length string contains consecutive symbols.\\
+3) If it does not contain consecutive symbols, it will be one of non-consecutive ones with length n-1 and number of them will be equal to
+$3^n^-1 - a_n_-_1$
+We have to make the string consecutive with the last digit as it is not consecutive right now. Therefore, the last digit we can choose for n length string depends on the last digit of n-1 length string. If it is 0, we have to choose 0 to make it consecutive and same thing goes for 1 and 2. Hence we have only one last digit option for every non-consecutive string with length n-1 to make it consecutive string of length n. We get total of 
+$1*(3^n^-^1 - a_n_-_1)$
+strings from that part. \\
+4) From 2 and 3, we have
+$3^n^-^1 +2*a_n_-_1$
+strings of length n that contains two consecutive symbols that are the same.\\
+5) Hence, the recurrence relation is
+$a_n=3^n^-^1 +2*a_n_-_1$\\
+$3*a_n=3^n +6*a_n_-_1$
+ 
+\paragraph{\textbf{b)}}
+From part a, we can see that 
+$a_1 \ and \ a_2 $
+and also 
+$a_2 \ and \ a_3$
+satisfies the recurrence relation we have found. \\
+$a_2=3^1 + 2*a_1$\\
+3=3+2*0\\
+$a_3=3^2 + 2*a_2$\\
+15=9+2*3\\
+To be able use this recurrence relation we need an initial condition such that
+$a_1=0$
+
+\paragraph{\textbf{c)}}
+$a_n=a_n^h+a_n^p$\\
+$3*a_n-6*a_n_-_1=3^n$\\
+Part 1) Solving the homogeneous part: \\
+The characteristic roots of the recurrence relation must satisfy the equation
+$3*a_n-6*a_n_-_1=0$\\
+To find the roots, if we call the root r;\\
+$3*r-6=0$\\
+$(r-2)=0$\\
+$ r=2$\\
+Hence,
+$a_n^h=A*2^n$
+where A is a constant.\\
+We will find the exact value of A after we find the partial solution.\\\\
+Part 2) Solving the nonhomogeneous (partial) part: \\
+$F(n)=3^n$ \\
+Since 3 is not a characteristic root of the homogeneous part, we can directly say
+$a_n^p$
+is of the form 
+$a_n^p=C*3^n$\\
+Substitute the partial solution to the recurrence relation;\\
+$3*C*3^n=3^n+6*C*3^n^-1$\\
+$3*C*3^n=3^n+2*C*3^n$\\
+$3*C*3^n=3^n(2*C+1)$\\
+$3*C=(2*C+1)$\\
+$C=1$\\
+Hence,
+$a_n^p=3^n$\\
+$a_n=A*2^n+3^n$\\
+For n=1;
+$a_1=A*2+3=0$\\
+For n=2;
+$a_2=A*4+9=3$\\
+$A=-3/2$\\
+Thus;\\
+$a_n=-3*2^n^-^1+3^n$
+\end{document}
+

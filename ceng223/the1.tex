@@ -1,0 +1,200 @@
+" \documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{fancybox}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{latexsym}
+\usepackage{alltt}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{fitch}  % to use fitch
+\usepackage{float}
+\usepackage[hmargin=3cm,vmargin=5.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name :  Aybüke Aksoy
+Id Number :  2448090
+
+
+% ND example using fitch
+% delete or comment if you intend to use this to generate the vector pdf 
+
+
+% Write your answers below the section tags
+\section*{Q. 1}
+\begin{table}[H]
+ \begin{scriptsize}
+    \begin{tabular}{ccc|l}
+    $(A \cup B)\backslash(A \cap B) $ & $\equiv$ & $\{x | x \in (A \cup B) \wedge x \notin (A  \cap B)\}$ &definiton of set difference\\
+    & $\equiv$ & $\{x | (x \in A \lor x \in B) \wedge x \notin (A  \cap B)\} $ &definition of union\\
+    & $\equiv$ & $\{x | (x \in A \lor x \in B) \wedge \neg (x \in (A  \cap B))\}$ &$definition \ of  \notin$ \\
+    & $\equiv$ & $\{x | (x \in A \lor x \in B) \wedge \neg(x \in A \wedge x \in B)$ &definition of intersection\\
+    & $\equiv$ & $\{x | (x \in A \lor x \in B) \wedge (x \notin A \lor x \notin B)$ &de morgan's law\\
+    & $\equiv$ & $\{x | ((x \in A \lor x \in B) \wedge (x \notin A)) \lor ((x \in A \lor x \in B) \wedge (x \notin B))\} $ &distributive laws\\
+    & $\equiv$ & $\{x | ((x \notin A) \wedge (x \in A \lor x \in B)) \lor ( (x \notin B) \wedge (x \in A \lor x \in B)\} $ &commutative laws\\
+    & $\equiv$ & $\{ x | ((( x \notin A) \wedge (x \in A)) \lor (( x \notin A) \wedge (x \in B))) \lor (((x \notin B) \wedge (x \in A)) \lor ((x \notin B ) \wedge (x \in B)))$ &distributive laws\\
+    & $\equiv$ & $\{ x | (\O \lor ((x \notin A) \wedge (x \in B))) \lor  ((( x \notin B) \wedge (x \in A)) \lor \O)\}$ & complement laws\\
+    & $\equiv$ & $\{ x | ((x \notin A) \wedge (x \in B)) \lor ((x \notin B) \wedge (x \in A))\}$ &identity laws\\
+    & $\equiv$ & $\{ x | ((x \in B) \wedge (x \notin A)) \lor ((x \in B) \wedge (x \notin A))\}$ &commutative laws\\
+    & $\equiv$ & $(B \backslash A) \cup(A \backslash B)$ & definition of set diff and union\\
+    \end{tabular}
+  \end{scriptsize}
+\end{table}
+
+\section*{Q. 2}
+\begin{equation*}
+  \ Prove \ that \ the \ set \ \{f | f \subseteq \ N \times \{0, 1\}, \ f \ is \ a \ function\} \backslash \{f | f : \{0, 1\} \rightarrow  N, \ f \ is \ a \ function\} \ is \ uncountable.
+  \end{equation*}
+  $PART\ 1:  \ Proving \ \{f | f \subseteq \ N \times \{0, 1\}, \ f \ is \ a \ function\}  \ is \ uncountable$\\
+ $ Claim: \ \{f | f \subseteq \ N \times \{0, 1\}, \ f \ is \ a \ function\} \ is \ countable$\\
+ Suppose we can construct an arbitrary enumeration such that;\\
+ $1 \rightarrow \{(0,a_1),(1,a_2),(2,a_3)....\} \ \ \ \ for \ a_1,a_2,a_3....  \in \{0,1\}$\\              
+ $2 \rightarrow \{(0,b_1),(1,b_2),(2,b_3)....\} \ \ \ \ for \ b_1,b_2,b_3....  \in \{0,1\}$\\
+ $3 \rightarrow \{(0,c_1),(1,c_2),(2,c_3)....\} \ \ \ \ for \ c_1,c_2,c_3....  \in \{0,1\}$\\
+                               .
+                               .
+                               .\\
+ Now, we can construct a mapping that is missed by the enumeration by using Cantor's Diagonalization Method.\\
+ $f=\{(0,f_1),(1,f_2),(2,f_3),.......\} \ such \ that;$\\
+ $f_1 \neq a_1$\\
+ $f_2 \neq b_2$\\
+ $f_3 \neq c_3$\\
+ By design, f is missed by the enumeration.\\
+ Since we have shown we cannot construct such arbitrary enumeration that gives us all the mappings, we can say the set is uncountably infinite by contradiction. \\ 
+ Also, we can consider the number of functions as the cardinality of the power set of 
+ $N \times \{0,1\}$
+ which is
+ $2^C \ where \ C=|N|*|2|$
+and by the continuum hypothesis it is equal to the cardinality of the real numbers which is an uncountable set. Moreover, by another theorem the power set of countably infinite set such as natural numbers is uncountably infinite.\\
+ $Hence \ \{f | f \subseteq \ N \times \{0, 1\}, \ f \ is \ a \ function\}$
+ is uncountable.\\
+  $PART \ 2:  \ Proving \ \{f | f : \{0, 1\} \rightarrow  N, \ f \ is \ a \ function\} \ is \ countable$\\
+  The number of functions from a 2 element set to natural numbers is
+  $\ |N|^2$\\
+  To show the all possibilities of functions from 
+  $ \ \{0,1\} \ $
+  to natural numbers, 0 can be mapped to any element of natural numbers and this gives us
+   $\ |N| \ $
+   possibilities which is the cardinality of natural numbers. Again, when we map 1 to any element of natural numbers, we get 
+   $\ |N|\ $
+   choices. Therefore, the number of all possible functions is 
+   $\ |N \times N|\ $
+   To decide whether the set of all functions from natural numbers to natural numbers is countable or not, we can try to construct an enumeration so that we can list all the mappings and count them. 
+   For example when we enumerate the members of
+   $\ N \times N\ $ 
+   in the following order:\\\\
+    (0,0)(0,1)(0,2)(0,3).....\\
+   (1,0)(1,1)(1,2)(1,3).....\\
+   (2,0)(2,1)(2,2)(2,3).....\\
+   (2,0)(2,1)(2,2)(2,3).....\\
+   ........\\\\
+   Starting from (0,0) and going through diagonals, (0,1),(1,0),(0,2),(1,1),(2,0) and so on, we can count each mapping.\\
+   Since we have found an enumeration method for mappings from natural numbers to natural numbers, we can say this set is countable.\\
+   Having the same cardinality as
+   $\ N \times N\ $
+   the set of all functions such that
+   $\ \{f | f : \{0, 1\} \rightarrow  N, \ f \ is \ a \ function\} \ $
+   is also countable.\\
+  $PART \ 3:  \ Proving \ uncountable \backslash countable= uncountable$\\
+  If we call the set of all functions such that
+  $ \ \{f | f \subseteq \ N \times \{0, 1\}, \ f \ is \ a \ function\}$
+  which is an uncountable set as A, and the set of all functions such that 
+  $\ \{f | f : \{0, 1\} \rightarrow  N, \ f \ is \ a \ function\}$
+  which is an countable set as B, to find the countability of the set difference between them 
+  $\ (A \backslash B) \ ;$\\
+  1) A is uncountably infinite\\
+  2) B is countably infinite\\
+  $3) \ Assume \ A \backslash B \ is \ countable$\\
+  $4) \ Then \ the \ union \ (A \backslash B) \cup B \ $
+  is also countable from Theorem 1, Cardinality of Sets sec.  2.5 from the book. 
+  $5) \ (A \backslash B) \cup B=A \cup B$\\
+  To prove the 5th step, we can use set membership notation and logical equivalences. 
+   \begin{table}[H]
+   \begin{tabular}{ccc|l}
+     $(A \backslash B)\cup B $ & $\equiv$ & $\{x | x \in (A \backslash B) \lor x \in B\}$ & by definiton of union\\
+     & $\equiv$ & $\{x | (x \in A \wedge x \notin B) \lor x \in B\} $ &definition of set difference\\
+     & $\equiv$ & $\{x | x \in B \lor (x \in A \wedge x \notin B)\} $ &commutative laws\\
+     & $\equiv$ & $\{x | (x \in B \lor x \in A) \wedge (x \in B \lor x \notin B) \} $ &distributive laws\\
+     & $\equiv$ & $\{x | (x \in B \lor x \in A) \wedge U \} $ &complement laws\\
+     & $\equiv$ & $\{x | (x \in B \lor x \in A)\} $ &identity laws\\
+     & $\equiv$ & $A \cup B$ &definition of union\\
+   \end{tabular}
+  \end{table}
+   6) From step 3 and 5, 
+   $\ A \cup B \ is \ countable$\\
+   7) A is a subset of
+   $\ A \cup B$
+   and we get A is uncountable while the union is countable (from steps 1,6), Therefore, we get a contradiction as it is not possible that an uncountable set is a subset of a countable set.\\
+   8) Hence, our assumption is not true and 
+   $\ A \backslash B$ 
+   is not countable, which means it is uncountable. 
+
+    
+\section*{Q. 3}
+ \begin{equation*}
+  \ Prove \ that \ the \ function \ f(n)=4^n + 5n^2 \log n \ is \ not \ O(2^n)
+  \end{equation*}
+  $f(n) \ is \ O(g(n)) \ if \ there \ are \ constants \ C,k \ such \ that \ C,k \in \ Z^+$\\
+  $|f(n)| \leq C|g(n)| \ , \ n>k$\\
+  $For \ f(n)=4^n + 5n^2 \ and \ g(n)=2^n$\\
+  $\ Assume \ |4^n + 5n^2 \log n| \leq \ C|2^n| $\\
+  We get 
+  $|2^n*2^n + 5*2^n*2^n| \leq C|2^n| \ by \ replacing \ n^2 \ and \ logn \ by \ 2^n \ since \ 2^n \ is \ greater \ than \ them \ for \ n>4  $\\
+  $|6*4^n| \leq C|2^n| $\\
+  $\ By \ dividing \ the \ inequality \ by \ 6*2^n \ we \ get \ , \ 6*|4^n|/(6*2^n) \leq C|2^n|/(6*2^n)\rightarrow |2^n| \leq C/6$\\
+  $\ By \ taking \ the \ logarithm \ in \ base \ 2 , \ |\log_2 2^n| \leq \log_2 C/6 \rightarrow n \leq \log_2 C/6$\\
+ As the right hand side of the inequality is a constant, this inequality does not hold for all n greater than 2\\
+ Therefore we get a contradiction and our assumption is not true\\
+ $\ Thus, \ we \ can \ say  \ f(n)=4^n + 5n^2 \log n \ is \ not \ O(2^n)$
+  
+
+
+  
+\section*{Q. 4}
+\begin{center}
+ $\ Given \ two \ positive \ integers \ x \ and \ n \ such \ that \ x > 2 \ and \ n > 2, \ and \ the \ congruence \ relation$\\
+ $(2x-1)^n-x^2 \equiv -x-1 (mod(x-1))$\\
+ $determine \ the \ value \ of \ x.$
+\end{center}
+$1) \ (2x-1) \equiv 1 \ mod(x-1)$\\
+$2) \ From \ the \ rule; \ if  \ a \equiv b (mod \ n), \ then \ a^k  \equiv b^k(mod \ n) \ for \ any \ positive \ integer \ k, $\\
+$Since \ n>2; \ (2x-1)^n \equiv 1^n(mod(x-1))$\\
+$=(2x-1)^n  \equiv 1(mod(x-1)) \ as \ 1^n \ is \ same \ for \ all \ n$\\
+$ 3) \ As \ (2x-1)^n  \equiv 1(mod(x-1)); \ in \ cong. \ rel. \ (2x-1)^n-x^2 \equiv -x-1 (mod(x-1)), \ we \ can \ say \ 1 \ instead \ of \ (2x-1)^n$\\
+$ Therefore, \ 1-x^2 \equiv -x-1(mod(x-1))$\\
+$4) \  -x^2 +x+2 \equiv 0(mod(x-1))$\\
+$5) \ (2-x)(x+1) \equiv 0(mod(x-1))$\\ 
+$6) \ since \ (2-x) \equiv 1 (mod(x-1)) \ and \ (x+1) \equiv 2\ (mod(x-1)),$\\
+$From \ the \ rule; \ if \ a \equiv b (mod \ m) \ and \ c \equiv d (mod \ m), then \ ac \equiv bd (mod \ m) \ while \ m \ is \ a \ positive \ integer,$\\
+$\ And \ also \ as \ x>2 \ and \ (x-1) \ is \ a \ positive \ integer, \ we \ can \ say \ 1*2 \equiv 0 (mod(x-1))$\\
+$7) \ 2 \equiv 0(mod(x-1))$\\
+$8) \ 2=0+k(x-1) \ for \ integer \ k$\\
+$9) (x-1) | 2$\\
+$10) (x-1) \ can \ only \ be \ 2 \ as \ x>2$\\ 
+$Thus, \ (x-1)=2 \ and \ x=3$\\ 
+
+
+
+
+
+ % add / remove sections etc as needed 
+% use your own format
+\end{document}
+
