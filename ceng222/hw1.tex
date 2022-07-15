@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\section*{Student Information}
+
+Name : Aybüke Aksoy\\
+
+ID : 2448090\\
+
+
+\section*{Answer 1}
+Let B and W denote the events that the black, white ball is picked. Let BOX1,BOX2,BOX3 denote the events boxes 1,2,3 are selected respectively.
+\subsection*{a)}
+Since choosing a white ball and not choosing a white ball are mutually exclusive and exhaustive, we can say P(W)=$1-P(\overline{W})$. 
+So instead of finding the possibility of choosing 2 or 3 white balls from the boxes, we can find the possibility of not choosing any white balls and subtract it from 1. Not choosing any white balls means choosing one black ball from each box.\\
+As all the balls in box have equal probability of being picked, and 8 out of 10 are black in BOX 1:\\
+$P(B|BOX1)$=$\frac{8}{10}$\\
+11 out of 15 are black in BOX 2:\\
+$P(B|BOX2)$=$\frac{11}{15}$\\
+9 out of 12 are black in BOX 3:\\
+$P(B|BOX3)$=$\frac{9}{12}$\\
+As choosing from each box are independent events, we can directly multiply the possibilities of choosing a black ball from each box.\\
+$P(\overline{W})=P(B|BOX1)\times P(B|BOX2) \times P(B|BOX3)$=$\frac{8}{10} \times \frac{11}{15} \times \frac{9}{12}=\frac{66}{150}$\\
+P(W)=$1-P(\overline{W})=1-\frac{66}{150}=\frac{84}{150}$\\
+\subsection*{b)}
+In the same way we found the probability of choosing one black ball from each box, we can find the probability of choosing white ones instead.
+As again, all the balls in box have equal probability of being picked, and 2 out of 10 are white balls in BOX 1:\\
+$P(W|BOX1)$=$\frac{2}{10}$\\
+4 out of 15 are white in BOX 2:\\
+$P(W|BOX2)$=$\frac{4}{15}$\\
+3 out of 12 are white in BOX 3:\\
+$P(W|BOX3)$=$\frac{3}{12}$\\
+As choosing from each box are independent events, we can directly multiply the probabilities of choosing a white ball from each box.\\
+$P(W)=P(W|BOX1)\times P(W|BOX2) \times P(W|BOX3)$=$\frac{2}{10} \times \frac{4}{15} \times \frac{3}{12}=\frac{2}{150}$\\
+\subsection*{c)}
+I would choose the box which has the highest probability for choosing a white ball. Comparing BOX 1, BOX 2 and BOX 3:\\
+BOX 1=$\frac{2}{10} \times \frac{1}{9}$=$\frac{1}{45}$ \\
+BOX 2=$\frac{4}{15} \times \frac{3}{14}$=$\frac{2}{35}$ \\
+BOX 3=$\frac{3}{12} \times \frac{2}{11}$=$\frac{1}{22}$ \\
+$P(W|BOX2)>P(W|BOX3)>P(W|BOX1)$\\
+Hence, I would choose from BOX 2.\\
+\subsection*{d)}
+First, as it has the highest probability seen from part c, I would choose BOX 2. After choosing a ball from BOX 2, there will be 3 white balls left. Since 3 out of 14 balls will be white, $P(W|BOX2)$ will be reduced to $\frac{3}{14}$. Now comparing the probabilities, \\
+$P(W|BOX3)>P(W|BOX2)>P(W|BOX1)$\\
+Hence, I would choose the first ball from BOX 2 and second ball from BOX 3.
+\subsection*{e)}
+Expected values of W is its mean, the average value but a weighted one.\\
+Therefore, we will multiply the number of balls we get from each box with the probability of choosing a white ball from that box.\\
+E(W)=$1 \times \frac{2}{10} + 1 \times \frac{4}{15} + 1 \times \frac{3}{12}=0.71\overline{6}$\\
+\subsection*{f)}
+P(BOX1)=$\frac{1}{3}$\\
+P(BOX2)=$\frac{1}{3}$\\
+P(BOX3)=$\frac{1}{3}$\\
+$P(W|BOX1)$=$\frac{2}{10}$\\
+$P(W)$=$P(BOX1) \times P(W|BOX1) + P(BOX2) \times P(W|BOX2) + P(BOX3) \times P(W|BOX3)$=$\frac{1}{3} \times \frac{2}{10}+\frac{1}{3} \times \frac{4}{15} + \frac{1}{3} \times \frac{3}{12}$\\
+Using the Bayes Rule:\\
+$P(BOX1|W)=\frac{P(W|BOX1) \times P(BOX1)}{P(W)}=\frac{\frac{2}{10} \times \frac{1}{3}}{\frac{2}{10} \times \frac{1}{3}+\frac{4}{15} \times \frac{1}{3}+\frac{3}{12} \times \frac{1}{3}}=\frac{12}{43}=0.27906977$\\
+\section*{Answer 2}
+Let F, S and R denote the events that Frodo is corrupted, Sam is corrupted and Ring is destroyed respectively.
+\subsection*{a)}
+From the information given in the question text:\\
+$P(R|\overline{S})=0.9$\\
+$P(R|S)=0.5$\\
+$P(S)=0.1$\\
+First, we need to find the probability of the ring being destroyed. Since there are 2 cases of ring being destroyed, where Sam is corrupted and not corrupted, we have to add the probabilites of those 2 cases to find the total probability of ring being destroyed.\\
+As Sam being destroyed and not being destroyed are mutually exclusive and exhaustive events;
+$P(\overline{S})=1-P(S)=1-0.1=0.9$\\
+$P(R)=P(\overline{S}) \times P(R|\overline{S}) + P(S) \times P(R|S)=0.86 $\\
+To find $P(S|R)$, we can use the Bayes Rule:\\
+$P(S|R)=\frac{P(R|S) \times P(S)}{P(R)}=\frac{0.5 \times 0.1}{0.86}=0.05814$
+\subsection*{b)}
+Since the corruption of Sam and Frodo are independent events;\\
+P(S \cap F)=$P(S) \times P(F)=0.25 \times 0.1=0.025$\\
+The question asks us to find $P(S \cap F|R)$\\
+We can use the Bayes Rule:\\
+$P(S \cap F|R)=\frac{P(R|S \cap F) \times P(S \cap F)}{P(R)}$\\
+We already know that:\\
+$P(R|S \cap F)=0.05$\\
+$P(R|F \cap \overline(S))=0.2$\\
+$P(R|\overline{F} \cap \overline{S} )=0.9$\\
+$P(R|S \cap \overline(F))=0.5$\\
+from the question text.\\
+So,we only have to find $P(R)$\\
+\begin{table}[H]
+    \setlength{\extrarowheight}{}
+    \begin{tabular}{*{4}{c|}}
+      \multicolumn{}{}{} & \multicolumn{}{}{}\\\cline{3-4}
+      \multicolumn{1}{c}{} &  & $P(S)=0.1$  & $P(S^c)=0.9$ \\\cline{2-4}
+      \multirow{}{}  & $P(F)=0.25$ & $0.05$ & $0.2$ \\\cline{2-4}
+      & $P(F^c)=0.75$ & $0.5$ & $0.9$ \\\cline{2-4}
+    \end{tabular}
+\end{table}\\
+The table shows the probabilities  of the ring being destroyed for each case.\\
+Now, we can calculate P(R) as:
+$0.1 \times 0.25 \times 0.05 + 0.1 \times 0.75 \times 0.5 + 0.9 \times 0.25 \times 0.2 + 0.9 \times 0.75 \times 0.9=0.69125$\\
+From the Bayes rule:\\
+$P(X|R)=\frac{P(R|X) \times P(X)}{P(R)}=\frac{0.05 \times 0.025}{0.6425}=0.00180832$\\
+
+
+
+
+
+
+
+
+\section*{Answer 3}
+\subsection*{a)}
+When we look at the joint probability table of random variables A and I, we can see that there are only 2 cases for four snowy days in total which are P(A=2,I=2) and P(A=3, I=1).\\ 
+Therefore, from the law of total probability we can find P(A=a,I=i) where a+i=4 as:\\
+P(A=2,I=2)+P(A=3, I=1)=0.2+0.12=0.32
+\subsection*{b)}
+\begin{tabular}{l*{6}{c}r}
+                & P(A=1)& P(A=2)  & P(A=3) & P(A=a) \\
+\hline
+P(I=1)            & 0.18 & 0.3  & 0.12 & 0.6\\
+P(I=2)            & 0.12 & 0.2  & 0.08 & 0.4\\
+P(I=i)              & 0.30 & 0.5  & 0.20 & 1\\
+\end{tabular}\\\\
+We have filled the table with the information from the joint probability table and using the law of total probability.\\
+We know that $P(A=a,I=i)=P(A=a)\times P(I=i)$ for independent events. 
+Therefore, we have to check if this condition holds for every value in the table:\\\\
+$P(A=1,I=1)=P(A=1)\timesP(I=1)=0.3\times0.6=0.18$\\
+$P(A=1,I=2)=P(A=1)\timesP(I=2)=0.3\times0.4=0.12$\\
+$P(A=2,I=1)=P(A=2)\timesP(I=1)=0.5\times0.6=0.3$\\
+$P(A=2,I=2)=P(A=2)\timesP(I=2)=0.5\times0.4=0.2$\\
+$P(A=3,I=1)=P(A=3)\timesP(I=1)=0.2\times0.6=0.12$\\
+$P(A=3,I=2)=P(A=3)\timesP(I=2)=0.2\times0.4=0.08$\\\\
+Since condition holds for every value in the table, we can say that snowy days in Ankara and İstanbul are independent events. 
+
+\end{document}
+

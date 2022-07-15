@@ -1,0 +1,157 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\section*{Student Information}
+
+Name : Aybüke Aksoy\\
+
+ID : 2448090\\
+
+
+\section*{Answer 1}
+\paragraph{a)}
+If X and Y are independent, the joint density function f(x,y) must be equal to f(x)f(y).\\
+We found f(x) and f(y) in part b. 
+\[f_X(x)f_Y(y)=\frac{2\sqrt{1-x^2}}{\pi}\frac{2\sqrt{1-y^2}}{\pi} \neq \frac{1}{\pi} \ , \ (x^2+y^2\leq1)\]
+Since they are not equal, X and Y are not independent.
+
+\paragraph{b)}
+We can calculate the marginal pdfs from:
+\[f_X(x)=\int f_{X,Y}(x,y)dy\]
+\[f_Y(y)=\int f_{X,Y}(x,y)dx\]
+$f_{X,Y}(x,y)=0$ when x and y does not satisfy the equation $x^2+y^2 \leq 1$. Therefore, integrals are zero at those points and we do not have to calculate it.\\
+At other points, we can use the equation $x^2+y^2 = 1$ to find the lower and upper limit of the integral for x and y. 
+\[y_1=\sqrt{1-x^2} \ , \ y_2=-\sqrt{1-x^2}\]
+\[x_1=\sqrt{1-y^2} \ , \ x_2=-\sqrt{1-y^2}\]
+\[f_X(x)=\int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}}\frac{1}{\pi}dy = \frac{2\sqrt{1-x^2}}{\pi}\]
+\[f_Y(y)=\int_{-\sqrt{1-y^2}}^{\sqrt{1-y^2}}\frac{1}{\pi}dx = \frac{2\sqrt{1-y^2}}{\pi}\]
+\paragraph{c)}
+We know that:
+\[E(X)=\int xf(x)dx\]
+Also we know f(x) from part b, so we can calculate E(X) as:
+\[E(X)=\int_{-1}^{1}\frac{x2\sqrt{1-x^2}}{\pi}dx\]
+By change of variable $u=1-x^2$,
+du=-2xdx and both the lower and upper limit of the integral becomes 0.
+\[E(X)=\int_{0}^{0}\frac{-\sqrt{u}}{\pi}du\]
+Hence, 
+\[E(X)=0\]
+\paragraph{d)}
+We know that:
+\[Var(X)=\int x^2f(x)dx-\mu^2\]
+Taking the integral by again using the f(x) we found from part b:
+\[Var(X)=\int_{-1}^{1}\frac{x^22\sqrt{1-x^2}}{\pi}dx=0.25\] 
+And we already know the value of $\mu$ from part c as it is equal to E(X).
+\[Var(X)=0.25-0^2=0.25\]
+\section*{Answer 2}
+\paragraph{a)}
+Joint density function for a uniform distribution is 
+\[f_x(x)=\frac{1}{b-a}\]
+For $T_A$ and $T_B$ b=100 and a=0;
+\[f_{T_A}(t_a)=\frac{1}{100} \ , \ f_{T_B}(t_b)=\frac{1}{100} \ , \ 0<t_a,t_b<100\]
+Since they are independent, 
+\[f_{T_A,T_B}(t_a,t_b)=f_{T_A}(t_a)f_{T_B}(t_b)=\frac{1}{100}\frac{1}{100}=\frac{1}{10000} \ , \ 0<t_a,t_b<100\] 
+Joint CDF can be found from the density functions as:
+\[F_x(x)=\int f_x(x)dx\]
+\[F_{T_A}(t_a)=\int_{0}^{t_a}f(t_a)dt_a=\frac{t_a}{100} \ , \ F_{T_B}(t_b)=\int_{0}^{t_b}f(t_b)dt_b= \frac{t_b}{100} \ , \ 0<t_a,t_b<100\]
+Since they are independent, 
+\[F_{T_A,T_B}(t_a,t_b)=F_{T_A}(t_a)F_{T_B}(t_b)=\frac{t_a}{100}\frac{t_b}{100}=\frac{t_at_b}{10000} \ , \ 0<t_a,t_b<100\] 
+\paragraph{b)}
+We can find the probability that subject A pushes the button in the first 10 seconds and subject B pushes the button in the last 10 seconds bu using the Joint CDF's we found in part a:
+\[P\{T_A \leq 10\}=F_{t_a}(10)=\int_{0}^{10}\frac{1}{100}dt_a=\frac{1}{10}\]
+\[P\{T_B \geq 90\}=1-F_{t_b}(90)=1-\int_{0}^{10}\frac{1}{100}dt_b=1-\frac{9}{10}=\frac{1}{10}\]
+Since these events are independent, 
+\[P\{T_A \leq 10 , T_B\geq 90\}=P\{T_A \leq 10\}P\{T_B \geq 90\}=\frac{1}{100}\]
+\paragraph{c)}
+Let $t_b$ be the second B pushes the button and $t_a$ be the second A pushes the button.\\
+Since subject A can push the button at most 20 seconds after subject B, unless B pushes the button at $t_b > 80$ ,  $t_a$ can only get values between 0 and $t_b+20$. When $t_b > 80$, $t_a$ can get the values from 0 to 100 as the difference between $t_a$ and $t_b$ is always less than 20. 
+\begin{center}
+        \begin{figure}[H]
+        \hspace{40mm}\includegraphics[scale=0.5]{pic2.png}
+        \caption{Graph of $t_b$ vs $t_a$}
+        \label{fig:htgraph}
+    \end{figure}
+\end{center}
+The ratio of the area under the curve to the total area which is 100x100 defines the probability that subject A pushes the button at most 20 seconds after subject B. \\
+Taking integral to find the probability:
+\[\frac{1}{10000}\int_{0}^{80}(t_b+20)dt_b \ + \  \frac{1}{10000}\int_{80}^{100}(100)dt_b\]
+\[0.48+0.20=0.68\]
+\paragraph{d)}
+Let $t_b$ be the second B pushes the button and $t_a$ be the second A pushes the button.\\
+Since the elapsed time of subject B and A cannot differ by more than 30 seconds, when B pushes the button at $0<t_b<30$ $t_a$ can take values between 0 to $t_b+30$. When $30<t_b<70$, $t_a$ can take values between $t_b-30$ to $t_b+30$. When $70<t_b<100$, $t_a$ can take values between $t_b-30$ to $100$.
+\begin{center}
+        \begin{figure}[H]
+        \hspace{40mm}\includegraphics[scale=0.5]{pic1.png}
+        \caption{Graph of $t_b$ vs $t_a$}
+        \label{fig:htgraph}
+    \end{figure}
+\end{center}
+The ratio of the area between the two curves to the total area which is 100x100 defines the probability that they pass the test. \\
+\[\frac{1}{10000}\int_{0}^{30}(t_b+30)dt_b \ + \  \frac{1}{10000}\int_{30}^{70}(t_b+30)-(t_b-30)dt_b \ + \ \frac{1}{10000}\int_{70}^{100}100-(t_b-30)dt_b \]
+\[=0.135+0.240+0.135=0.51\]
+\section*{Answer 3}
+\paragraph{a)}
+\[F_{X_i}=P(X_i \geq x)=e^{-\lambda_ix_i}\]
+To find the $F_{X_n}=P(T \leq t)$:
+\[P(T \leq t)=1-P(T \geq t)\]
+\[=1-P(min\{X_1,X_2,X_3....X_n \} \geq t)\]
+Since T is the minimum which means it is less than all $X_i$'s and greater than t, all $X_i$'s will be greater than t. 
+\[=1-P(X_1\geq t,X_2 \geq t,X_3 \geq t,....X_n \geq t)\]
+Since those are independent,
+\[=1-P(X_1 \geq t)P(X_2 \geq t)P(X_3 \geq t).....P(X_n \geq t)\]
+\[=1-e^{-\lambda_1 t}e^{-\lambda_2 t}e^{-\lambda_3 t}.....e^{-\lambda_n t}\]
+\[=1-e^{-\lambda_1t-\lambda_2t-\lambda_3t.....-\lambda_n t}\]
+\[=1-e^{-\Sigma_{i=1}^{n}\lambda_i t}\]
+
+\paragraph{b)}
+$\mu$ is given as $\frac{10}{n}$ in the question.\\
+Since $\mu=E(X)=\frac{1}{\lambda}$, we know that:
+\[\lambda_n=\frac{n}{10}\]
+\[\lambda_1=\frac{1}{10} \ ,\ \lambda_1=\frac{1}{10} \ ,\ \lambda_2=\frac{2}{10}......\lambda_10=\frac{10}{10} \]
+\[\Sigma_{n=0}^{n=10}\lambda_n=\frac{55}{10}\]
+Exponential distribution has the density function:
+\[f(t)=\lambda e^{-\lambda t}\]
+\[f(t)=\frac{55}{10}e^{-\frac{55}{10} t}\]
+Finding the expected time:
+\[E(X)=\int_{0}^{\propto}tf(t)dt\]
+\[E(X)=\int_{0}^{\propto}tf(t)dt\]
+\[E(X)=\int_{0}^{\propto}t\frac{55}{10}e^{-\frac{55}{10} t}dt\]
+\[=0.\overline{18}\]
+
+\section*{Answer 4}
+We are gonna apply the central limit theorem and use continuity correction. 
+\[\mu=np \ , \ \sigma=\sqrt{np(1-p)}\]
+\subsection*{a)}
+Probability of being an undergraduate student is 0.74, p=0.74
+The number of students participating in a poll is 100, n=100
+\[\mu=np=74 \ , \ \sigma=\sqrt{np(1-p)}=\sqrt{74(1-0.74)}=\sqrt{19.24}\]
+Let U denote the random variable of participants being an undergraduate students. \\
+Instead of calculating the probability that at least $\%70$ of the participants being undergraduate students, we can calculate the probability that at most $\%70$ (without including 70) of the participants being undergraduate students and substract it from 1. 
+\[P(U < 70)=P(U<69.5)=P \Big{\{}\frac{U-\mu}{\sigma}<\frac{69.5-\mu}{\sigma}\Big{\}}\]
+\[\approx P \Big{\{}\frac{69.5-74}{\sqrt{19.24}}\Big{\}}=\Phi(-1.026)\]
+Hence, 
+\[P(U \geq 70) \approx 1-\Phi(-1.026)=0.8485\]
+\subsection*{b)}
+Probability of pursuing a doctoral degree is 0.1, p=0.1
+The number of students participating in a poll is 100, n=100
+\[\mu=np=10 \ , \ \sigma=\sqrt{np(1-p)}=\sqrt{10(1-0.1)}=\sqrt{9}=3\]
+Let D denote the random variable of participants pursuing a doctoral degree.
+\[P(D \leq 5)=P(D < 5.5)=P \Big{\{}\frac{D-\mu}{\sigma}<\frac{5.5-\mu}{\sigma}\Big{\}}\]
+\[\approx P \Big{\{}\frac{5.5-10}{3}\Big{\}}=\Phi(-1.5)\]
+Hence,
+\[P(D \leq 5) \approx \Phi(-1.5)=0.066807\]
+\end{document}
+
