@@ -1,0 +1,176 @@
+\documentclass[10pt,a4paper, margin=1in]{article}
+\usepackage{fullpage}
+\usepackage{amsfonts, amsmath, pifont}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+
+\makeatletter
+\newcommand\xleftrightarrow[2][]{%
+  \ext@arrow 9999{\longleftrightarrowfill@}{#1}{#2}}
+\newcommand\longleftrightarrowfill@{%
+  \arrowfill@\leftarrow\relbar\rightarrow}
+\makeatother
+
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=10mm,
+ right=10mm,
+ top=10mm,
+ bottom=10mm,
+ }
+ % Write both of your names here. Fill exxxxxxx with your ceng mail address.
+ \author{
+  Aksoy, Aybüke\\
+  \texttt{e2448090@ceng.metu.edu.tr}
+  \and
+  Varlı, Yiğit\\
+  \texttt{e2381036@ceng.metu.edu.tr}
+}
+
+\title{CENG 384 - Signals and Systems for Computer Engineers \\
+Spring 2022 \\
+Homework 3}
+\begin{document}
+\maketitle
+
+
+
+\noindent\rule{19cm}{1.2pt}
+
+\begin{enumerate}
+
+\item %write the solution of q1
+    \begin{enumerate}
+    % Write your solutions in the following items.
+    \item %write the solution of q1a
+    We know that;
+    \[cos(wt)=\frac{1}{2}(e^{jwt}+e^{-jwt}) \ \ (a)\]
+    \[sin(wt)=\frac{1}{2j}(e^{jwt}-e^{-jwt}) \ \ (b)\]
+    So, we can write x(t) as;
+    \[x(t)=\frac{1}{2}e^{j\frac{\pi}{4}t}+\frac{1}{2}e^{-j\frac{\pi}{4}t}+\frac{1}{2j}e^{j\frac{\pi}{5}t}-\frac{1}{2j}e^{-j\frac{\pi}{5}t} \ \ (1)\] 
+    To be able to use the synthesis equation:
+    \[x(t)=\Sigma_{k=-\infty}^{\infty}a_{k}e^{jk{w_0}t}\]
+    We need to determine $w_0$.
+    Since $w=\frac{2\pi}{T}$, T1=8 and T2=10.\\ 
+    Therefore, the fundamental period $T_0$ is 40 and $w_0$ is $\frac{\pi}{20}.$
+    \[x(t)=\Sigma_{k=-\infty}^{\infty}a_{k}e^{jk\frac{\pi}{20}t} \ \ (2)\] 
+    Nonzero terms in the equation 2 should correspond to the terms in equation 1.\\
+    Hence, the coefficient $a_k's$ from $-\infty$ to $\infty$ except $a_4, a_{-4}, a_5, a_{-5}$ are 0, and
+    \[a_4=a_{-4}=\frac{1}{2j}\]
+    \[a_5=a_{-5}=\frac{1}{2}\]
+    \item %write the solution of q1b
+    The spectral coefficients for discrete signals are periodic with the fundamental period $N_0$.\\
+    To determine $N_0$ we need to find the period of each term in x[n]. 
+    \[w=\frac{2\pi k}{N}\]
+    Period for $sin(4\pi n)$, $N1=\frac{k}{2}$; period for $cos(2\pi n)$, N2=m and the period for $e^{j\pi n}$, N3=2.\\ 
+    So, for k=4 and m=2, $N_0=2$\\
+    As $N_0=2$ and the coefficients are periodic, to find $a_k's$ it is enough to calculate $a_0$ and $a_1$.\\
+    Using the analysis equation with $N_0=2$:
+    \[a_k=\frac{1}{2}\Sigma_{n=0}^{1}x[n]e^{-jk\pi n}\]
+    \[x[0]=\frac{5}{2}\]
+    \[x[1]=\frac{3}{2}+e^{j\pi}\]
+    \[a_k=\frac{1}{2}(\frac{5}{2}+\frac{3}{2}e^{-jk\pi}+e^{j \pi(1-k)})\]
+    Using the formula we obtained for $a_k$:
+    \[a_0=\frac{3}{2} \ , \ a_1=1 \ and \ a_k=a_{k+2} \ \ for \ k>0\]
+    \end{enumerate}
+
+\item %write the solution of q2
+    \[w_0=\frac{2\pi}{N}=\frac{2\pi}{7}\]
+    Since we know the nonzero terms, by using the formula:
+    \[x[n]=\Sigma_{k\subset N}a_ke^{-j{w_0}n}\]
+    We can write x(t) as:
+    \[x[n]=2je^{j\frac{2\pi}{7}n}-2je^{-j\frac{2\pi}{7}n}+2je^{j\frac{4\pi}{7}n}+2je^{-j\frac{2\pi}{7}n}+2je^{j\frac{6\pi}{7}n}-2je^{-j\frac{6\pi}{7}n}\]
+    By using the equations a and b to write x(t) in the form:
+    \[x(n)=4{j^2}sin(\frac{2\pi n}{7})+4cos(\frac{4\pi n}{7})+4{j^2}sin(\frac{6\pi n}{7})\]
+    \[x(n)=-4sin(\frac{2\pi n}{7})+4cos(\frac{4\pi n}{7})-4sin(\frac{6\pi n}{7})\]
+    \[x(n)=-4sin(\frac{2\pi n}{7})-4sin(\frac{4\pi n}{7}-\frac{\pi}{2})-4sin(\frac{6\pi n}{7})\]
+    where $A_0$=0. 
+\item %write the solution of q3  
+    \begin{enumerate}
+    % Write your solutions in the following items.
+    \item We can write sin(wt) as the following form using Euler's Formula:
+    \[sin(wt) = \frac{1}{2j}(e^{jwt} - e^{-jwt})\]
+    Then, $w=\cfrac{\pi}{8}$
+    \[sin(\frac{\pi}{8}t) = \frac{1}{2j}(e^{j\frac{\pi}{8}t} - e^{-j\frac{\pi}{8}t})\]
+    \[sin(\frac{\pi}{8}t) = \frac{1}{2j}e^{j\frac{\pi}{8}t} - \frac{1}{2j}e^{-j\frac{\pi}{8}t}\]
+    we know that $x(t)$ is of the form:
+    \[x(t) = \sum_{k=-\infty}^{\infty}a_k e^{jkw_0t}\]
+    When me make them equal, we found out that:
+    \[a_{-1} = -\frac{1}{2j} \hspace{5mm} a_1 = \frac{1}{2j}\]
+    Otherwise $a_k = 0$.\\
+    %----------b------------
+    \item We can write cos(wt) as the following form using Euler's Formula:
+    \[cos(wt) = \frac{1}{2}(e^{jwt} + e^{-jwt})\]
+    Then, $w=\cfrac{\pi}{8}$
+    \[cos(\frac{\pi}{8}t) = \frac{1}{2}(e^{j\frac{\pi}{8}t} + e^{-j\frac{\pi}{8}t})\]
+    \[cos(\frac{\pi}{8}t) = \frac{1}{2}e^{j\frac{\pi}{8}t} + \frac{1}{2}e^{-j\frac{\pi}{8}t}\]
+    we know that $x(t)$ is of the form:
+    \[x(t) = \sum_{k=-\infty}^{\infty}b_k e^{jkw_0t}\]
+    When me make them equal, we found out that:
+    \[b_{-1} = \frac{1}{2} \hspace{5mm} b_1 = \frac{1}{2}\]
+    Otherwise $b_k = 0$.\\
+    %-----------c--------------
+    \item Given that $x(t) \xleftrightarrow{\text{FS}} a_k$ and $y(t) \xleftrightarrow{\text{FS}} b_k$ then,
+    \[x(t)y(t) = z(t) \xleftrightarrow{\text{FS}} c_k = \sum_{l=-\infty}^{\infty} a_l b_{k-l}\]
+    Since $a_l$ is nonzero only for $l=-1,1$, we can write the result of summation as:
+    \[c_k = a_{-1}b_{k+1} + a_1b_{k-1}\]
+    \[c_{-2} = a_{-1}b_{-1} + a_1b_{-3} = -\frac{1}{4j}\]
+    \[c_{0} = a_{-1}b_1 + a_{1}b_{-1} = 0\]
+    \[c_2 = a_{-1}b_3 + a_1b_1 = \frac{1}{4j}\]
+    Otherwise $c_k = 0$.
+    \end{enumerate}
+
+\item From the given conditions, we can infer followings:
+\begin{itemize}
+    \item Since signal is odd, there is no DC component. Thus, $a_0=0$.
+    \item For odd signals, we know that $a_k=-a_{-k}$. Thus, given that $a_2=3j$, $a_{-2}=-3j$.
+    \item Given that 
+    \[\frac{1}{4} \int_0^4 |x(t)|^2 dt = \sum_{k=-2}^{2} |a_k|^2 = 18\] 
+    from the Parseval's Equality. We know that $|a_{-2}| = |a_2| = 3$ and $|a_0| = 0$. Using the Parseval's Equality, we find out that both $a_{-1}$ and $a_1$ is 0. Then, we know that:
+    \[x(t) = \sum_{k=-\infty}^{\infty} a_k e^{jkw_0t}\]
+    We are given that $T=4$ then we can infer $w_0$ from the equality of $w_0 = \frac{2\pi}{T} = \frac{\pi}{2}$. Using the $a_k$'s we can write signal as:
+    \[x(t) = -3je^{-j2\frac{\pi}{2}t} + 3je^{j2\frac{\pi}{2}t}\]
+    \[x(t) = 3j(e^{j\pi t} - e^{-j\pi t})\]
+    Using the Euler's Formula:
+    \[x(t) = -6sin(\pi t)\]
+\end{itemize}
+
+
+\item We can find the spectral coefficients from the equation:
+    \[a_k = \frac{1}{N} \sum_{n=-\infty}^{\infty} f[n] e^{-jkw_0n}\]
+    where $w_0 = \frac{2\pi}{N} = \frac{2\pi}{9}$ for both cases.
+    \begin{enumerate}   
+    % Write your solutions in the following items.
+    \item 
+    \[a_k = \frac{1}{9} \sum_{n=0}^{8} x[n]e^{-jk\frac{2\pi}{9}n}\]
+    \[a_k = \frac{1}{9} \sum_{n=0}^{4}e^{-jk\frac{2\pi}{9}n}\]
+    \[a_k = \frac{1}{9}(1 + e^{-jk\frac{2\pi}{9}} + e^{-jk\frac{4\pi}{9}} + e^{-jk\frac{6\pi}{9}} + e^{-jk\frac{8\pi}{9}})\]
+    \item 
+    \[b_k = \frac{1}{9} \sum_{n=0}^{8} y[n]e^{-jk\frac{2\pi}{9}n}\]
+    \[b_k = \frac{1}{9} \sum_{n=0}^{3}e^{-jk\frac{2\pi}{9}n}\]
+    \[b_k = \frac{1}{9}(1 + e^{-jk\frac{2\pi}{9}} + e^{-jk\frac{4\pi}{9}} + e^{-jk\frac{6\pi}{9}})\]
+    \item Given that $x[n]$ and $H(e^{jw_0})$, we know that $y[n] = H(e^{jw_0}x[n]).$ Also, we know that relationship between the spectral coeffients of $y[n]$ and $x[n]$ is written as below:
+    \[b_k = H(e^{jkw_0})a_k\]
+    Then, we can write eigenvalue $H(e^{jkw_0})$ as:
+    \[H(e^{jkw_0}) = \frac{b_k}{a_k}\]
+    \[H(e^{jkw_0}) = \frac{1 + e^{-jkw_0} + e^{-2jkw_0} + e^{-3jkw_0}}{1 + e^{-jkw_0} + e^{-2jkw_0} + e^{-3jkw_0} + e^{-4jkw_0}}\]
+    To get frequency response of the system from eigenvalue, we need to make $kw_0 \rightarrow w$ transformation. Then,
+    \[H(e^{jw}) = \frac{1 + e^{-jkw} + e^{-2jkw} + e^{-3jkw}}{1 + e^{-jkw} + e^{-2jkw} + e^{-3jkw} + e^{-4jkw}}\]
+    \end{enumerate}
+
+ 
+
+\end{enumerate}
+
+
+\end{document}
+
